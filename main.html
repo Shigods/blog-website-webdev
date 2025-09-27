@@ -1,30 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Tailwind in Browser</title>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>WuWa Blogs</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-900">
 
-    <!-- Load Tailwind's in-browser runtime -->
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-
-    <!-- Tailwind custom styles -->
-    <style type="text/tailwindcss">
-      @layer utilities {
-        .card {
-          @apply bg-white p-6 rounded-lg shadow-md text-center;
-        }
-      }
-
-      body {
-        @apply bg-gray-100 h-screen flex items-center justify-center;
-      }
-    </style>
-  </head>
-
-  <body>
-    <div class="card">
-      <h1 class="text-2xl font-bold text-gray-800">Hello, Tailwind!</h1>
-      <p class="text-gray-600 mt-2">Running entirely in your browser.</p>
+  <header class="bg-black shadow">
+    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+      <img src="header.png" alt="My Blog Logo" class="h-10" />
+      <nav aria-label="Primary" class="space-x-6 text-white">
+        <a href="#" class="hover:text-blue-600 font-semibold focus:outline-none focus:ring-2 focus:ring-blue-600 rounded">Home</a>
+        <a href="#" class="hover:text-blue-600 font-semibold focus:outline-none focus:ring-2 focus:ring-blue-600 rounded">About</a>
+        <a href="#" class="hover:text-blue-600 font-semibold focus:outline-none focus:ring-2 focus:ring-blue-600 rounded">Contact</a>
+      </nav>
     </div>
-  </body>
+  </header>
+
+  <section class="bg-black text-white py-20">
+    <img src="GhKvNROaMAAAz8c.jpg" alt="background-bg" class="w-full h-72 object-cover" />
+    
+    <div class="container mx-auto px-6 text-center max-w-3xl mt-8">
+      <p class="text-lg mb-8">Insights, stories, and ideas about <i>Wuthering Waves.</i></p>
+    </div>
+  </section>
+
+  <section id="posts" class="container mx-auto px-6 py-16 max-w-5xl">
+    <h3 class="text-3xl font-bold mb-10 text-center"><i>Latest Insights</i></h3>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+
+      <article class="bg-white rounded-lg shadow hover:shadow-lg hover:scale-[1.02] transition transform p-6 flex flex-col">
+        <img src="https://source.unsplash.com/400x250/?technology,computer" alt="Post Image" loading="lazy" class="rounded-md mb-4 object-cover h-48 w-full" />
+        <h4 class="text-xl font-semibold mb-2">Understanding Tailwind CSS: A Beginner's Guide</h4>
+        <p class="text-gray-700 flex-grow">Tailwind CSS has taken the front-end world by storm. Learn how to quickly build beautiful UI with its utility-first approach.</p>
+        <a href="#" class="mt-4 text-blue-600 font-semibold hover:underline">Read More →</a>
+      </article>
+
+      <article class="bg-white rounded-lg shadow hover:shadow-lg hover:scale-[1.02] transition transform p-6 flex flex-col">
+        <img src="https://source.unsplash.com/400x250/?coding,developer" alt="Post Image" loading="lazy" class="rounded-md mb-4 object-cover h-48 w-full" />
+        <h4 class="text-xl font-semibold mb-2">Top 10 VS Code Extensions for Web Developers</h4>
+        <p class="text-gray-700 flex-grow">Boost your productivity with these must-have Visual Studio Code extensions for any web developer.</p>
+        <a href="#" class="mt-4 text-blue-600 font-semibold hover:underline">Read More →</a>
+      </article>
+
+      <article class="bg-white rounded-lg shadow hover:shadow-lg hover:scale-[1.02] transition transform p-6 flex flex-col">
+        <img src="https://source.unsplash.com/400x250/?design,ui" alt="Post Image" loading="lazy" class="rounded-md mb-4 object-cover h-48 w-full" />
+        <h4 class="text-xl font-semibold mb-2">UI Design Trends in 2025</h4>
+        <p class="text-gray-700 flex-grow">Explore the latest trends shaping the future of user interface design and user experience.</p>
+        <a href="#" class="mt-4 text-blue-600 font-semibold hover:underline">Read More →</a>
+      </article>
+
+      <article class="bg-white rounded-lg shadow hover:shadow-lg hover:scale-[1.02] transition transform p-6 flex flex-col">
+        <img src="https://source.unsplash.com/400x250/?javascript,code" alt="Post Image" loading="lazy" class="rounded-md mb-4 object-cover h-48 w-full" />
+        <h4 class="text-xl font-semibold mb-2">JavaScript ES2025: What’s New?</h4>
+        <p class="text-gray-700 flex-grow">Get up to speed with the newest features introduced in the latest version of JavaScript.</p>
+        <a href="#" class="mt-4 text-blue-600 font-semibold hover:underline">Read More →</a>
+      </article>
+
+      <article class="bg-white rounded-lg shadow hover:shadow-lg hover:scale-[1.02] transition transform p-6 flex flex-col">
+        <img src="https://source.unsplash.com/400x250/?startup,work" alt="Post Image" loading="lazy" class="rounded-md mb-4 object-cover h-48 w-full" />
+        <h4 class="text-xl font-semibold mb-2">How to Launch a Successful Tech Startup</h4>
+        <p class="text-gray-700 flex-grow">From idea validation to product launch, here’s your step-by-step guide to startup success.</p>
+        <a href="#" class="mt-4 text-blue-600 font-semibold hover:underline">Read More →</a>
+      </article>
+
+      <article class="bg-white rounded-lg shadow hover:shadow-lg hover:scale-[1.02] transition transform p-6 flex flex-col">
+        <img src="https://source.unsplash.com/400x250/?cloud,server" alt="Post Image" loading="lazy" class="rounded-md mb-4 object-cover h-48 w-full" />
+        <h4 class="text-xl font-semibold mb-2">Cloud Computing Basics Explained</h4>
+        <p class="text-gray-700 flex-grow">A beginner’s guide to understanding cloud computing and why it matters for modern businesses.</p>
+        <a href="#" class="mt-4 text-blue-600 font-semibold hover:underline">Read More →</a>
+      </article>
+
+    </div>
+  </section>
+
+  <footer class="bg-white border-t mt-16 py-6">
+    <div class="container mx-auto px-6 text-center text-gray-600 text-sm">
+      &copy; Tailwind Blog. All rights reserved.
+    </div>
+  </footer>
+
+</body>
 </html>
