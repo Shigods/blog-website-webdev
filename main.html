@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Tailwind in Browser</title>
+
+    <!-- Load Tailwind's in-browser runtime -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- Tailwind custom styles -->
+    <style type="text/tailwindcss">
+      @layer utilities {
+        .card {
+          @apply bg-white p-6 rounded-lg shadow-md text-center;
+        }
+      }
+
+      body {
+        @apply bg-gray-100 h-screen flex items-center justify-center;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="card">
+      <h1 class="text-2xl font-bold text-gray-800">Hello, Tailwind!</h1>
+      <p class="text-gray-600 mt-2">Running entirely in your browser.</p>
+    </div>
+  </body>
+</html>
