@@ -3,84 +3,65 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>WuWa Blogs</title>
+  <title>WuWa Blogs - Interactive Insights</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
 </head>
 <body class="bg-gray-50 text-gray-900">
 
   <header class="bg-black shadow">
     <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-      <img src="header.png" alt="My Blog Logo" class="h-10" />
+      <img src="header.png" alt="WuWa Blog Logo" class="h-10" />
       <nav aria-label="Primary" class="space-x-6 text-white">
-        <a href="#" class="hover:text-blue-600 font-semibold focus:outline-none focus:ring-2 focus:ring-blue-600 rounded">Home</a>
-        <a href="#" class="hover:text-blue-600 font-semibold focus:outline-none focus:ring-2 focus:ring-blue-600 rounded">About</a>
-        <a href="#" class="hover:text-blue-600 font-semibold focus:outline-none focus:ring-2 focus:ring-blue-600 rounded">Contact</a>
+        <a href="#about" class="hover:text-blue-600 font-semibold">About</a>
+        <a href="#posts" class="hover:text-blue-600 font-semibold">Posts</a>
       </nav>
     </div>
   </header>
 
   <section class="bg-black text-white py-20">
     <img src="GhKvNROaMAAAz8c.jpg" alt="background-bg" class="w-full h-72 object-cover" />
-    
     <div class="container mx-auto px-6 text-center max-w-3xl mt-8">
-      <p class="text-lg mb-8">Insights, stories, and ideas about <i>Wuthering Waves.</i></p>
+      <p class="text-lg mb-8">Dive into the world of Wuthering Waves, exploring its rich lore, intense gameplay, and the mysteries that lie within.</p>
     </div>
   </section>
 
-  <section id="posts" class="container mx-auto px-6 py-16 max-w-5xl">
-    <h3 class="text-3xl font-bold mb-10 text-center"><i>Latest Insights</i></h3>
+  <section id="about" class="container mx-auto px-6 py-16 max-w-3xl text-center">
+    <h2 class="text-3xl font-bold mb-8">About Wuthering Waves</h2>
+    <p class="text-lg text-gray-700 mb-8">Wuthering Waves is an open-world action RPG set in a dystopian world where ancient forces and hidden powers collide.</p>
+    <p class="text-lg text-gray-700">Explore vast landscapes, battle mysterious creatures, and uncover the truth behind the waves that threaten to reshape the world.</p>
+  </section>
+
+  <section id="posts" class="container mx-auto px-6 py-16 max-w-5xl" x-data="{ openModal: false, modalData: {} }">
+    <h3 class="text-3xl font-bold mb-10 text-center"><i>Insights</i></h3>
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
 
-      <article class="bg-white rounded-lg shadow hover:shadow-lg hover:scale-[1.02] transition transform p-6 flex flex-col">
-        <img src="https://source.unsplash.com/400x250/?technology,computer" alt="Post Image" loading="lazy" class="rounded-md mb-4 object-cover h-48 w-full" />
-        <h4 class="text-xl font-semibold mb-2">Understanding Tailwind CSS: A Beginner's Guide</h4>
-        <p class="text-gray-700 flex-grow">Tailwind CSS has taken the front-end world by storm. Learn how to quickly build beautiful UI with its utility-first approach.</p>
-        <a href="#" class="mt-4 text-blue-600 font-semibold hover:underline">Read More →</a>
-      </article>
+      <template x-for="article in [
+        {title: 'Exploration', image: 'exploration.webp', content: 'Wuthering Waves invites players to roam a vast and mysterious world, where every corner tells a story. From crumbling ruins to lush forests, exploration is more than just moving around—it’s discovering hidden secrets, solving environmental puzzles, and stumbling upon moments that make the world feel alive. Every journey rewards curiosity, encouraging players to wander and wonder.'},
+        {title: 'Combat', image: 'combat.webp', content: 'The combat in Wuthering Waves is thrilling and strategic. Players must master fast-paced skill rotations, elemental interactions, and clever positioning. Each encounter feels unique, whether facing a small group of creatures or towering bosses. The system balances challenge and creativity, letting players experiment with abilities and tactics to emerge victorious.'},
+        {title: 'Lore', image: 'lore.avif', content: 'Beneath the waves lies a history rich with myths and legends. Ancient civilizations, forgotten heroes, and dark mysteries shape the world’s narrative. Players uncover this lore through exploration, dialogue, and hidden artifacts, piecing together stories that reveal the forces driving the conflict and the destiny of the land.'},
+        {title: 'Adventure', image: 'explo.webp', content: 'Every step in Wuthering Waves is an invitation to adventure. Whether trekking through stormy mountains, wandering abandoned cities, or venturing into dangerous forests, players encounter challenges that test skill, wit, and courage. Adventure here isn’t just about action—it’s about curiosity, discovery, and the thrill of the unknown.'},
+        {title: 'Narrative', image: 'narrative.jpg', content: 'The heart of Wuthering Waves is its story. Rich character arcs, moral dilemmas, and impactful choices make each playthrough feel personal. Decisions ripple through the world, shaping relationships and outcomes, and giving players a sense of agency in a narrative that’s as emotional as it is immersive.'},
+        {title: 'Characters', image: 'characters.webp', content: 'Characters in Wuthering Waves aren’t just allies or enemies—they’re living, breathing personalities with their own motives, histories, and quirks. Meeting new characters can open unique quests, unlock abilities, or reveal hidden layers of the story. Every interaction deepens your connection to the world and the stakes within it.'},
+      ]">
+        <article class="bg-white rounded-lg shadow hover:shadow-lg hover:scale-[1.02] transition transform p-6 flex flex-col cursor-pointer"
+                 @click="modalData = article; openModal = true">
+          <img :src="article.image" :alt="article.title" class="rounded-md mb-4 object-cover h-48 w-full" />
+          <h4 class="text-xl font-semibold mb-2" x-text="article.title"></h4>
+          <p class="text-gray-700 flex-grow">Expand...</p>
+        </article>
+      </template>
 
-      <article class="bg-white rounded-lg shadow hover:shadow-lg hover:scale-[1.02] transition transform p-6 flex flex-col">
-        <img src="https://source.unsplash.com/400x250/?coding,developer" alt="Post Image" loading="lazy" class="rounded-md mb-4 object-cover h-48 w-full" />
-        <h4 class="text-xl font-semibold mb-2">Top 10 VS Code Extensions for Web Developers</h4>
-        <p class="text-gray-700 flex-grow">Boost your productivity with these must-have Visual Studio Code extensions for any web developer.</p>
-        <a href="#" class="mt-4 text-blue-600 font-semibold hover:underline">Read More →</a>
-      </article>
-
-      <article class="bg-white rounded-lg shadow hover:shadow-lg hover:scale-[1.02] transition transform p-6 flex flex-col">
-        <img src="https://source.unsplash.com/400x250/?design,ui" alt="Post Image" loading="lazy" class="rounded-md mb-4 object-cover h-48 w-full" />
-        <h4 class="text-xl font-semibold mb-2">UI Design Trends in 2025</h4>
-        <p class="text-gray-700 flex-grow">Explore the latest trends shaping the future of user interface design and user experience.</p>
-        <a href="#" class="mt-4 text-blue-600 font-semibold hover:underline">Read More →</a>
-      </article>
-
-      <article class="bg-white rounded-lg shadow hover:shadow-lg hover:scale-[1.02] transition transform p-6 flex flex-col">
-        <img src="https://source.unsplash.com/400x250/?javascript,code" alt="Post Image" loading="lazy" class="rounded-md mb-4 object-cover h-48 w-full" />
-        <h4 class="text-xl font-semibold mb-2">JavaScript ES2025: What’s New?</h4>
-        <p class="text-gray-700 flex-grow">Get up to speed with the newest features introduced in the latest version of JavaScript.</p>
-        <a href="#" class="mt-4 text-blue-600 font-semibold hover:underline">Read More →</a>
-      </article>
-
-      <article class="bg-white rounded-lg shadow hover:shadow-lg hover:scale-[1.02] transition transform p-6 flex flex-col">
-        <img src="https://source.unsplash.com/400x250/?startup,work" alt="Post Image" loading="lazy" class="rounded-md mb-4 object-cover h-48 w-full" />
-        <h4 class="text-xl font-semibold mb-2">How to Launch a Successful Tech Startup</h4>
-        <p class="text-gray-700 flex-grow">From idea validation to product launch, here’s your step-by-step guide to startup success.</p>
-        <a href="#" class="mt-4 text-blue-600 font-semibold hover:underline">Read More →</a>
-      </article>
-
-      <article class="bg-white rounded-lg shadow hover:shadow-lg hover:scale-[1.02] transition transform p-6 flex flex-col">
-        <img src="https://source.unsplash.com/400x250/?cloud,server" alt="Post Image" loading="lazy" class="rounded-md mb-4 object-cover h-48 w-full" />
-        <h4 class="text-xl font-semibold mb-2">Cloud Computing Basics Explained</h4>
-        <p class="text-gray-700 flex-grow">A beginner’s guide to understanding cloud computing and why it matters for modern businesses.</p>
-        <a href="#" class="mt-4 text-blue-600 font-semibold hover:underline">Read More →</a>
-      </article>
+      <div x-show="openModal" x-transition class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+        <div @click.away="openModal = false" class="bg-white rounded-lg shadow-lg max-w-lg w-full p-6 relative">
+          <button @click="openModal = false" class="absolute top-2 right-2 text-gray-500 hover:text-gray-700 text-2xl">&times;</button>
+          <img :src="modalData.image" :alt="modalData.title" class="rounded-md mb-4 object-cover w-full h-64" />
+          <h4 class="text-2xl font-bold mb-4" x-text="modalData.title"></h4>
+          <p class="text-gray-700 text-justify" x-text="modalData.content"></p>
+        </div>
+      </div>
 
     </div>
   </section>
-
-  <footer class="bg-white border-t mt-16 py-6">
-    <div class="container mx-auto px-6 text-center text-gray-600 text-sm">
-      &copy; Tailwind Blog. All rights reserved.
-    </div>
-  </footer>
-
 </body>
 </html>
